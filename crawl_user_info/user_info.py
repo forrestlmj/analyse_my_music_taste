@@ -78,7 +78,7 @@ def check_dir(dir_name):
     return dir_name
 
 
-def get_user_info(search_word='joker199319'):
+def get_user_info(search_word):
     result = {}
     try:
         user_info = search_user(search_word)
@@ -96,10 +96,21 @@ def get_user_info(search_word='joker199319'):
         logging.error(e)
 
 
-def main():
+def get_search_list():
+    with open("company_list", "r", encoding="utf-8") as f:
+        list = f.readlines()
+    return list
 
-    user_info=get_user_info()
-    # write_json(str(user_info['user_info']['user_name'])+'.txt', user_info)
+
+def main():
+    list = get_search_list()
+    logging.info(str(list))
+    for i in list:
+        realname, find_way, nickname = i.replace("\n", "").split(',')
+        logging.info(u"crawl:REAL NAME :\""+str(realname)+"\"NICK NAME:\""+str(nickname)+"\" START.")
+        get_user_info(nickname)
+        logging.info(u"crawl:REAL NAME :\""+str(realname)+"\"NICK NAME:\""+str(nickname)+"\" END.")
+
     return
 
 

@@ -1,6 +1,5 @@
 import requests
 import json
-import traceback
 import os
 import logging
 from datetime import datetime
@@ -114,4 +113,3 @@ if __name__ == "__main__":
     logging.info("# ####### start #######")
     main()
     logging.info("# ####### end #######")
-

@@ -1,5 +1,5 @@
-import music163.lyric as ly
-import music163.user_info as user
+import lyric as ly
+import user_info as user
 
 
 # song_id = "111"
